@@ -87,7 +87,7 @@ class MotorConvertor {
             
         }
         
-        robot.setWheelVelocity(left: left, right: right)
+        robot.setWheelVelocity(left: -left, right: -right)
         print("Robot driving: \(left) \(right)")
     }
     
