@@ -33,6 +33,7 @@ class DriveViewController : UIViewController, RobotDelegate {
             debugString("newIP:" + ip)
             self.robot = Robot(host: ip)
             robot.connect()
+            motorConverter = MotorConvertor(drivingView: self.touchWheel, robot: self.robot)
         default:
             break;
         }
@@ -54,7 +55,6 @@ class DriveViewController : UIViewController, RobotDelegate {
     
     private func configureTouchWheel() {
         touchWheel.delegate = self
-
     }
 
     @objc private func refreshImageView() {

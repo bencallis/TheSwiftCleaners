@@ -61,7 +61,7 @@ class Robot: NSObject {
 
         client.subscribe("#", qos: 2)
         
-        NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: #selector(Robot.heartbeat), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(Robot.heartbeat), userInfo: nil, repeats: true)
     }
     
     func sendSpeedPayload(payload: String) {
