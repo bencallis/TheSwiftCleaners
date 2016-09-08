@@ -21,6 +21,10 @@
 		32C45F8F1D81983000569E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F8E1D81983000569E72 /* Assets.xcassets */; };
 		32C45F921D81983000569E72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F901D81983000569E72 /* LaunchScreen.storyboard */; };
 		423A45CE1D81B245007A8A36 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423A45CD1D81B245007A8A36 /* Robot.swift */; };
+		423A45D51D81BCE7007A8A36 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 423A45D41D81BCE7007A8A36 /* OpenCVWrapper.mm */; };
+		423A45D81D81BF1A007A8A36 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 423A45D71D81BF1A007A8A36 /* UIImage+OpenCV.mm */; };
+		423A45DA1D81C615007A8A36 /* DewarpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423A45D91D81C615007A8A36 /* DewarpViewController.swift */; };
+		423A45DD1D81C92F007A8A36 /* dewarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 423A45DB1D81C92F007A8A36 /* dewarp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,14 @@
 		32C45F911D81983000569E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32C45F931D81983000569E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		423A45CD1D81B245007A8A36 /* Robot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
+		423A45D21D81BCE7007A8A36 /* DysonWars-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DysonWars-Bridging-Header.h"; sourceTree = "<group>"; };
+		423A45D31D81BCE7007A8A36 /* OpenCVWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		423A45D41D81BCE7007A8A36 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		423A45D61D81BED1007A8A36 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		423A45D71D81BF1A007A8A36 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		423A45D91D81C615007A8A36 /* DewarpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DewarpViewController.swift; sourceTree = "<group>"; };
+		423A45DB1D81C92F007A8A36 /* dewarp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dewarp.cpp; sourceTree = "<group>"; };
+		423A45DC1D81C92F007A8A36 /* dewarp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dewarp.hpp; sourceTree = "<group>"; };
 		8E9EF3928D2CD3ED8F0BE203 /* Pods_DysonWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DysonWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83DBD1A8A690A24998D8FA5 /* Pods-DysonWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DysonWars.release.xcconfig"; path = "Pods/Target Support Files/Pods-DysonWars/Pods-DysonWars.release.xcconfig"; sourceTree = "<group>"; };
 		C0D695097020A5A4BD779DCE /* Pods-DysonWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DysonWars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DysonWars/Pods-DysonWars.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +107,7 @@
 		32C45F861D81983000569E72 /* DysonWars */ = {
 			isa = PBXGroup;
 			children = (
+				423A45D11D81BCC3007A8A36 /* Dewarp */,
 				423A45CD1D81B245007A8A36 /* Robot.swift */,
 				324E88BB1D819F87008C525A /* Networking */,
 				324E88B81D819D9D008C525A /* JoyStick */,
@@ -109,6 +122,21 @@
 				324E88C21D81E7D0008C525A /* SettingsViewController.swift */,
 			);
 			path = DysonWars;
+			sourceTree = "<group>";
+		};
+		423A45D11D81BCC3007A8A36 /* Dewarp */ = {
+			isa = PBXGroup;
+			children = (
+				423A45D31D81BCE7007A8A36 /* OpenCVWrapper.h */,
+				423A45D41D81BCE7007A8A36 /* OpenCVWrapper.mm */,
+				423A45D21D81BCE7007A8A36 /* DysonWars-Bridging-Header.h */,
+				423A45D61D81BED1007A8A36 /* UIImage+OpenCV.h */,
+				423A45D71D81BF1A007A8A36 /* UIImage+OpenCV.mm */,
+				423A45D91D81C615007A8A36 /* DewarpViewController.swift */,
+				423A45DB1D81C92F007A8A36 /* dewarp.cpp */,
+				423A45DC1D81C92F007A8A36 /* dewarp.hpp */,
+			);
+			name = Dewarp;
 			sourceTree = "<group>";
 		};
 		78DDD3AA1EDD61D8E1038D7D /* Pods */ = {
@@ -257,9 +285,13 @@
 				423A45CE1D81B245007A8A36 /* Robot.swift in Sources */,
 				01293E7E1D819FDB002E219F /* DriveViewController.swift in Sources */,
 				324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */,
+				423A45D51D81BCE7007A8A36 /* OpenCVWrapper.mm in Sources */,
+				423A45DD1D81C92F007A8A36 /* dewarp.cpp in Sources */,
 				324E88BD1D819F97008C525A /* Configuration.swift in Sources */,
 				32C45F881D81983000569E72 /* AppDelegate.swift in Sources */,
 				324E88BF1D81AEF3008C525A /* TouchWheel.swift in Sources */,
+				423A45D81D81BF1A007A8A36 /* UIImage+OpenCV.mm in Sources */,
+				423A45DA1D81C615007A8A36 /* DewarpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,10 +407,13 @@
 			baseConfigurationReference = C0D695097020A5A4BD779DCE /* Pods-DysonWars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DysonWars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bencallis.DysonWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DysonWars/DysonWars-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -387,10 +422,12 @@
 			baseConfigurationReference = B83DBD1A8A690A24998D8FA5 /* Pods-DysonWars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DysonWars/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bencallis.DysonWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DysonWars/DysonWars-Bridging-Header.h";
 			};
 			name = Release;
 		};

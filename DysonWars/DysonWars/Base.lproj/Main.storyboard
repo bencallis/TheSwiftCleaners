@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderView" translatesAutoresizingMaskIntoConstraints="NO" id="26S-Vr-R1S">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <rect key="frame" x="100" y="0.0" width="636" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1J-pN-Arp">
                                 <rect key="frame" x="672" y="364" width="44" height="30"/>
@@ -37,16 +37,8 @@
                                     <segue destination="Igf-J8-WPa" kind="show" id="6Kw-uJ-Amz"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jW3-4O-mkz" customClass="TouchWheel" customModule="DysonWars" customModuleProvider="target">
-                                <rect key="frame" x="206" y="0.0" width="414" height="414"/>
-                                <color key="backgroundColor" red="1" green="0.3294117647" blue="0.32156862749999998" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="jW3-4O-mkz" secondAttribute="height" multiplier="1:1" id="5cl-FQ-ezt"/>
-                                    <constraint firstAttribute="width" constant="414" id="ekr-K0-Hgf"/>
-                                </constraints>
-                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Debug console" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEP-7C-e9B">
-                                <rect key="frame" x="0.0" y="294" width="206" height="120"/>
+                                <rect key="frame" x="0.0" y="294" width="209" height="120"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59929265202702697" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="pE7-NN-RAM"/>
@@ -76,6 +68,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jW3-4O-mkz" customClass="TouchWheel" customModule="DysonWars" customModuleProvider="target">
+                                <rect key="frame" x="209" y="0.0" width="414" height="414"/>
+                                <color key="backgroundColor" red="1" green="0.3294117647" blue="0.32156862749999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jW3-4O-mkz" secondAttribute="height" multiplier="1:1" id="5cl-FQ-ezt"/>
+                                    <constraint firstAttribute="width" constant="414" id="ekr-K0-Hgf"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1yM-zZ-Bzr">
+                                <rect key="frame" x="10" y="66" width="170" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="5Q0-yR-WLV"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Trc-Xg-AFM" appends="YES" id="oXu-gN-gg3"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -84,6 +94,7 @@
                             <constraint firstItem="1s7-vG-bPi" firstAttribute="leading" secondItem="Q4W-iq-qxW" secondAttribute="leading" id="DX4-K8-KFV"/>
                             <constraint firstItem="jW3-4O-mkz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Eqa-IG-8Vx"/>
                             <constraint firstItem="lse-7k-LGm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Jap-U7-dtt"/>
+                            <constraint firstItem="1yM-zZ-Bzr" firstAttribute="trailing" secondItem="Q4W-iq-qxW" secondAttribute="trailing" id="Or6-dh-cy5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EEP-7C-e9B" secondAttribute="bottom" id="QCT-8R-BcO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="26S-Vr-R1S" secondAttribute="bottom" id="Vzo-zn-Wnb"/>
                             <constraint firstAttribute="trailing" secondItem="26S-Vr-R1S" secondAttribute="trailing" id="Zdo-iC-Xgp"/>
@@ -94,8 +105,10 @@
                             <constraint firstItem="jW3-4O-mkz" firstAttribute="leading" secondItem="EEP-7C-e9B" secondAttribute="trailing" id="v6O-C2-Sg4"/>
                             <constraint firstItem="Q4W-iq-qxW" firstAttribute="top" secondItem="1s7-vG-bPi" secondAttribute="bottom" constant="2" id="w09-3U-WiR"/>
                             <constraint firstItem="EEP-7C-e9B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wee-lE-CAY"/>
-                            <constraint firstItem="jW3-4O-mkz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="45" id="xiR-yH-Bjf"/>
-                            <constraint firstItem="26S-Vr-R1S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zYi-jg-62I"/>
+                            <constraint firstItem="1yM-zZ-Bzr" firstAttribute="leading" secondItem="Q4W-iq-qxW" secondAttribute="leading" id="wzf-Sl-WAm"/>
+                            <constraint firstItem="jW3-4O-mkz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="48" id="xiR-yH-Bjf"/>
+                            <constraint firstItem="1yM-zZ-Bzr" firstAttribute="top" secondItem="Q4W-iq-qxW" secondAttribute="bottom" constant="8" id="y40-zi-PJR"/>
+                            <constraint firstItem="26S-Vr-R1S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="100" id="zYi-jg-62I"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Swift Cleaning Wars" id="cPM-dF-4cm">
@@ -106,10 +119,16 @@
                     <connections>
                         <outlet property="debugConsole" destination="EEP-7C-e9B" id="XY0-YZ-2f3"/>
                         <outlet property="imageView" destination="26S-Vr-R1S" id="cy6-Tr-3Ih"/>
+                        <outlet property="panaromaImage" destination="1yM-zZ-Bzr" id="qfv-iY-MQh"/>
                         <outlet property="touchWheel" destination="jW3-4O-mkz" id="BWf-1v-CJg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Trc-Xg-AFM" userLabel="Panorama Gesture Tap">
+                    <connections>
+                        <action selector="panoramaTapped:" destination="BYZ-38-t0r" id="8op-D6-zC6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1367" y="63"/>
         </scene>
@@ -212,6 +231,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholderView" width="640" height="480"/>
+        <image name="placeholderView" width="426" height="428"/>
     </resources>
 </document>

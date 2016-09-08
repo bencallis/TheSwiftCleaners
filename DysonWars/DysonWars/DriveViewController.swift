@@ -12,6 +12,7 @@ import SpriteKit
 
 class DriveViewController : UIViewController, RobotDelegate {
     
+    @IBOutlet weak var panaromaImage: UIImageView!
     private lazy var motorConverter: MotorConvertor = {
         // lazy so we can access the touchWheel
         return  MotorConvertor(drivingView: self.touchWheel, robot: self.robot)
@@ -65,9 +66,16 @@ class DriveViewController : UIViewController, RobotDelegate {
             
             switch result {
             case .success(let image):
-                let flippedImage = UIImage(CGImage: image.CGImage!, scale: 1.0, orientation: .DownMirrored)
 
-                dispatch_async(dispatch_get_main_queue(), { 
+                let cropRect = CGRectMake(154, 14, 426, 428)
+                let croppedImage = CGImageCreateWithImageInRect(image.CGImage, cropRect)
+
+                let flippedImage = UIImage(CGImage: croppedImage!, scale: 1.0, orientation: .DownMirrored)
+
+                let panaromaImage = OpenCVWrapper.processImage(flippedImage)
+
+                dispatch_async(dispatch_get_main_queue(), {
+                    sSelf.panaromaImage.image = panaromaImage
                     sSelf.imageView.image = flippedImage
                     sSelf.statsDidChange("new image SUCCESS")
 
@@ -101,7 +109,11 @@ class DriveViewController : UIViewController, RobotDelegate {
         }
 
     }
-    
+
+    @IBAction func unwindToMain(sender:UIStoryboardSegue) {
+
+    }
+
     @IBAction func gearChanged(sender: UISegmentedControl) {
         let gear = sender.selectedSegmentIndex
         let speed = (gear * 1000) + 1000
@@ -110,6 +122,8 @@ class DriveViewController : UIViewController, RobotDelegate {
         debugString("Speed change: \(speed)")
     }
     
+    @IBAction func panoramaTapped(sender: AnyObject) {
+    }
 }
 
 extension DriveViewController: TouchWheelDelegate {

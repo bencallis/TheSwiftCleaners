@@ -1,9 +1,11 @@
 PODS:
   - Moscapsule (0.5.2)
+  - OpenCV (3.1.0.1)
   - OpenSSL-Universal (1.0.1.19)
 
 DEPENDENCIES:
   - Moscapsule (from `https://github.com/flightonary/Moscapsule.git`)
+  - OpenCV
   - OpenSSL-Universal (~> 1.0.1.18)
 
 EXTERNAL SOURCES:
@@ -17,8 +19,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Moscapsule: 16da766e698792911aafd11d9a26c6dbc42199f4
+  OpenCV: 41c4250e2b06a394d6fbb634b5fa622cdd846018
   OpenSSL-Universal: 07489b0316f0f4f53c928e402e2ecbbedf96d93b
 
-PODFILE CHECKSUM: b26ad11238e4f721dca708aa76946d7120b02fac
+PODFILE CHECKSUM: 8f872f322e130e5da76481d730eb3ad604ff1ee0
 
 COCOAPODS: 1.0.1
