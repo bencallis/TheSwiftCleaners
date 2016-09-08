@@ -15,8 +15,8 @@ class DriveViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Configure the view.
-        let scene = GameScene(size: self.view.bounds.size)
-        scene.backgroundColor = .white()
+        let scene = DriveScene(size: self.view.bounds.size)
+        scene.backgroundColor = UIColor.whiteColor()
         if let skView = self.view as? SKView {
             
             skView.showsFPS = true
@@ -34,10 +34,10 @@ class DriveViewController : UIViewController {
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask  {
-        if UIDevice.current().userInterfaceIdiom == .phone {
-            return UIInterfaceOrientationMask.allButUpsideDown
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            return UIInterfaceOrientationMask.AllButUpsideDown
         } else {
-            return UIInterfaceOrientationMask.all
+            return UIInterfaceOrientationMask.All
         }
     }
     
