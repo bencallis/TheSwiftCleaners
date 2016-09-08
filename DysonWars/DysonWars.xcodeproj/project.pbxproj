@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		083DEE86FA6C75824C8025DB /* Pods_DysonWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EF3928D2CD3ED8F0BE203 /* Pods_DysonWars.framework */; };
+		324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88B91D819DA9008C525A /* AnalogJoystick.swift */; };
 		32C45F881D81983000569E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F871D81983000569E72 /* AppDelegate.swift */; };
 		32C45F8A1D81983000569E72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F891D81983000569E72 /* ViewController.swift */; };
 		32C45F8D1D81983000569E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F8B1D81983000569E72 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		324E88B91D819DA9008C525A /* AnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
 		32C45F841D81983000569E72 /* DysonWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DysonWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C45F871D81983000569E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C45F891D81983000569E72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		324E88B81D819D9D008C525A /* JoyStick */ = {
+			isa = PBXGroup;
+			children = (
+				324E88B91D819DA9008C525A /* AnalogJoystick.swift */,
+			);
+			name = JoyStick;
+			sourceTree = "<group>";
+		};
 		32C45F7B1D81983000569E72 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 		32C45F861D81983000569E72 /* DysonWars */ = {
 			isa = PBXGroup;
 			children = (
+				324E88B81D819D9D008C525A /* JoyStick */,
 				32C45F871D81983000569E72 /* AppDelegate.swift */,
 				32C45F891D81983000569E72 /* ViewController.swift */,
 				32C45F8B1D81983000569E72 /* Main.storyboard */,
@@ -211,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C45F8A1D81983000569E72 /* ViewController.swift in Sources */,
+				324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */,
 				32C45F881D81983000569E72 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
