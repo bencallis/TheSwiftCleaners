@@ -18,7 +18,12 @@ class Robot: NSObject {
     var client : MQTTClient?
     var latestValues : [String : String] = [:]
     weak var delegate : RobotDelegate?
+    
     var lastPayload : String?
+    var lastLeft : Int?
+    var lastRight : Int?
+    var targetLeft : Int?
+    var targetRight : Int?
 
     init(host: String) {
         // set MQTT Client Configuration
@@ -66,18 +71,45 @@ class Robot: NSObject {
         
         client.publishString(payload, topic: "command/wheel_speed", qos: 2, retain: false)
     }
+    
+    func sendSpeed(left left: Int, right: Int) {
+        
+        var smoothLeft = left
+        var smoothRight = right
+        
+        if let lastLeft = lastLeft {
+            smoothLeft = smoother(now: lastLeft, target: left)
+        }
+        
+        if let lastRight = lastRight {
+            smoothRight = smoother(now: lastRight, target: right)
+        }
+        
+        let payload = "{\"Left\":\(smoothLeft), \"Right\":\(smoothRight)}"
+        sendSpeedPayload(payload)
+        print("smooth left: \(smoothLeft)")
+        
+        lastLeft = smoothLeft
+        lastRight = smoothRight
+    }
+    
+    func smoother(now now: Int, target: Int) -> Int {
+        if abs(now - target) < 100 { return target }
+        return now + Int(Double(target - now) * 0.3)
+    }
 
     func setWheelVelocity(left left : Int, right : Int) {
-        let payload = "{\"Left\":\(left), \"Right\":\(right)}"
-        lastPayload = payload
-        sendSpeedPayload(payload)
+        targetLeft = left
+        targetRight = right
     }
     
     func heartbeat() {
-        guard let payload = lastPayload else {
+        print("hb")
+        guard let targetLeft = targetLeft, targetRight = targetRight else {
             return
         }
-        sendSpeedPayload(payload)
+        print("tleft: \(targetLeft)")
+        sendSpeed(left: targetLeft, right: targetRight)
     }
 
 }
