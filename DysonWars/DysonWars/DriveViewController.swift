@@ -26,6 +26,16 @@ class DriveViewController : UIViewController, RobotDelegate {
     @IBOutlet weak var touchWheel: TouchWheel!
     
     @IBAction func unwindToDriveViewControllerFromSettings(segue: UIStoryboardSegue) {
+        
+        switch(segue.identifier, segue.sourceViewController) {
+        case ("dismissSettings"?, let settingsVC as SettingsViewController):
+            guard let ip = settingsVC.ipTextField.text else {return}
+            debugString("newIP:" + ip)
+            self.robot = Robot(host: ip)
+            robot.connect()
+        default:
+            break;
+        }
     }
     
     override func viewDidLoad() {

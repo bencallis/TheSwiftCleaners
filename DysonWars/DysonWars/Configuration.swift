@@ -10,5 +10,4 @@ import Foundation
 
 struct Configuration {
     let ip = "192.168.1.110"
-    
 }

@@ -116,7 +116,7 @@
         <!--Settings-->
         <scene sceneID="jah-GE-AYn">
             <objects>
-                <tableViewController id="IY1-KQ-cdX" sceneMemberID="viewController">
+                <tableViewController id="IY1-KQ-cdX" customClass="SettingsViewController" customModule="DysonWars" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="liL-Ew-o9Y">
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,15 +179,18 @@
                     <navigationItem key="navigationItem" title="Settings" id="PWu-Ko-l90">
                         <barButtonItem key="leftBarButtonItem" title="Dismiss" id="kYo-p2-N0l">
                             <connections>
-                                <segue destination="xRk-Xb-IGq" kind="unwind" unwindAction="unwindToDriveViewControllerFromSettings:" id="ft6-LD-z3g"/>
+                                <segue destination="xRk-Xb-IGq" kind="unwind" identifier="dismissSettings" unwindAction="unwindToDriveViewControllerFromSettings:" id="ft6-LD-z3g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ipTextField" destination="IdA-UY-BEJ" id="RbI-ge-muw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUT-aJ-f8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xRk-Xb-IGq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="-472"/>
+            <point key="canvasLocation" x="2842" y="-472"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nwb-Aw-25k">
