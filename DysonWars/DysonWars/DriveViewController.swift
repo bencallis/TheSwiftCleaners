@@ -70,19 +70,23 @@ class DriveViewController : UIViewController, RobotDelegate {
     }
 
     func statsDidChange(stats: String) {
-        if NSThread.isMainThread() {
-            debugString(stats)
-        } else {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.debugString(stats)
-            })
-        }
+//        debugString(stats) dont log too much noise
+
     }
     
     private func debugString(debugString: String) {
         let newText = debugString + "\n" + debugConsole.text
-        debugConsole.text = newText // todo may need to limit this?
-        debugConsole.setContentOffset(CGPointZero, animated: false)
+
+        if NSThread.isMainThread() {
+            debugConsole.text = newText // todo may need to limit this?
+            debugConsole.setContentOffset(CGPointZero, animated: false)
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.debugConsole.text = newText // todo may need to limit this?
+                self.debugConsole.setContentOffset(CGPointZero, animated: false)
+            })
+        }
+
     }
 }
 
