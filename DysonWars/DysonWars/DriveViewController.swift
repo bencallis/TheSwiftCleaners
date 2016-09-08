@@ -12,6 +12,8 @@ import SpriteKit
 
 class DriveViewController : UIViewController {
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBAction func unwindToDriveViewControllerFromSettings(segue: UIStoryboardSegue) {
     }
     
@@ -30,6 +32,10 @@ class DriveViewController : UIViewController {
             //scene.scaleMode = .AspectFill
             skView.presentScene(scene)
         }
+    }
+    
+    private func refreshImageView() {
+        
     }
     
 
