@@ -42,7 +42,7 @@ class Robot: NSObject {
                 guard let delegate = sSelf.delegate else {
                     return
                 }
-                delegate.statsDidChange(latestValues.description)
+                delegate.statsDidChange(sSelf.latestValues.description)
             })
         }
 
