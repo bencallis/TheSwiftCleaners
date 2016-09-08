@@ -16,7 +16,6 @@
 		324E88BF1D81AEF3008C525A /* TouchWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88BE1D81AEF3008C525A /* TouchWheel.swift */; };
 		324E88C11D81BE2D008C525A /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88C01D81BE2D008C525A /* NetworkController.swift */; };
 		32C45F881D81983000569E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F871D81983000569E72 /* AppDelegate.swift */; };
-		32C45F8A1D81983000569E72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F891D81983000569E72 /* ViewController.swift */; };
 		32C45F8D1D81983000569E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F8B1D81983000569E72 /* Main.storyboard */; };
 		32C45F8F1D81983000569E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F8E1D81983000569E72 /* Assets.xcassets */; };
 		32C45F921D81983000569E72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F901D81983000569E72 /* LaunchScreen.storyboard */; };
@@ -33,7 +32,6 @@
 		324E88C01D81BE2D008C525A /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		32C45F841D81983000569E72 /* DysonWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DysonWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C45F871D81983000569E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		32C45F891D81983000569E72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		32C45F8C1D81983000569E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32C45F8E1D81983000569E72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32C45F911D81983000569E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				324E88BB1D819F87008C525A /* Networking */,
 				324E88B81D819D9D008C525A /* JoyStick */,
 				32C45F871D81983000569E72 /* AppDelegate.swift */,
-				32C45F891D81983000569E72 /* ViewController.swift */,
 				32C45F8B1D81983000569E72 /* Main.storyboard */,
 				32C45F8E1D81983000569E72 /* Assets.xcassets */,
 				32C45F901D81983000569E72 /* LaunchScreen.storyboard */,
@@ -253,7 +250,6 @@
 				324E88C11D81BE2D008C525A /* NetworkController.swift in Sources */,
 				0140558E1D81A38F004CC17E /* DriveScene.swift in Sources */,
 				014055901D81AA98004CC17E /* MotorConverter.swift in Sources */,
-				32C45F8A1D81983000569E72 /* ViewController.swift in Sources */,
 				423A45CE1D81B245007A8A36 /* Robot.swift in Sources */,
 				01293E7E1D819FDB002E219F /* DriveViewController.swift in Sources */,
 				324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */,
