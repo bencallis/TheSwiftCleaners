@@ -37,32 +37,47 @@ class DriveViewController : UIViewController, RobotDelegate {
             guard let ip = settingsVC.ipTextField.text else {return}
             currentIP = ip
             debugString("newIP:" + currentIP)
-            self.robot = Robot(host: currentIP)
-            robot.connect()
-            motorConverter = MotorConvertor(drivingView: self.touchWheel, robot: self.robot)
+           self.resetStuff()
         default:
             break;
         }
+    }
+    
+    private func resetStuff() {
+        self.robot = Robot(host: currentIP)
+        robot.delegate = self
+        robot.connect()
+        motorConverter = MotorConvertor(drivingView: self.touchWheel, robot: self.robot)
+        debugString("Reset stuff")
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configureTouchWheel()
-        robot.delegate = self
-        robot.connect()
+        resetStuff()
         
         self.imageView.image = nil // dont show the placeholder
         refreshImageView()
 
         NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(refreshImageView), userInfo: nil, repeats: true)
-
     }
     
     private func configureTouchWheel() {
         touchWheel.delegate = self
     }
 
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch (segue.identifier, segue.destinationViewController) {
+        case ("settings"?, let navVC as UINavigationController):
+            guard let settingsVC = navVC.topViewController as? SettingsViewController else {return}
+            settingsVC.ipText = currentIP
+        default:
+            break;
+        }
+    }
     @objc private func refreshImageView() {
         print("refreshImageView")
 
@@ -101,7 +116,12 @@ class DriveViewController : UIViewController, RobotDelegate {
     }
 
     func didDisconnect() {
-
+        debugString("Disconnected!!!!!")
+        resetStuff()
+    }
+    
+    func didConnect() {
+        debugString("Connected!!!!!")
     }
     
     private func debugString(debugString: String) {

@@ -11,6 +11,8 @@ import Moscapsule
 protocol RobotDelegate:class {
     func statsDidChange(stats: String)
     func didDisconnect()
+    func didConnect()
+
 }
 
 class Robot: NSObject {
@@ -47,6 +49,14 @@ class Robot: NSObject {
             })
         }
 
+        mqttConfig.onConnectCallback = { [weak self] reasonCode in
+            dispatch_async(dispatch_get_main_queue(), { [weak self] in
+                guard let sSelf = self else {
+                    return
+                }
+                sSelf.delegate?.didConnect()
+                })
+        }
         mqttConfig.onPublishCallback = { messageId in
             //NSLog("published (mid=\(messageId))")
         }

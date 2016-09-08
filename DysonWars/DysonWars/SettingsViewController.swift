@@ -13,4 +13,13 @@ class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var ipTextField: UITextField!
     
+    var ipText: String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let ipText = ipText {
+            ipTextField.text = ipText
+        }
+    }
 }

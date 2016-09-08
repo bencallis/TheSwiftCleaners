@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -22,19 +22,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderView" translatesAutoresizingMaskIntoConstraints="NO" id="26S-Vr-R1S">
                                 <rect key="frame" x="100" y="0.0" width="636" height="414"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1J-pN-Arp">
-                                <rect key="frame" x="672" y="364" width="44" height="30"/>
-                                <state key="normal" title="Attack">
-                                    <color key="titleColor" red="0.96470588450000005" green="0.96078431610000004" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lse-7k-LGm">
                                 <rect key="frame" x="659" y="28" width="57" height="30"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Igf-J8-WPa" kind="show" id="6Kw-uJ-Amz"/>
+                                    <segue destination="Igf-J8-WPa" kind="show" identifier="settings" id="6Kw-uJ-Amz"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Debug console" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEP-7C-e9B">
@@ -90,7 +84,6 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lse-7k-LGm" secondAttribute="trailing" constant="20" id="3gf-VA-8QC"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m1J-pN-Arp" secondAttribute="bottom" constant="20" id="6ku-81-Vqn"/>
                             <constraint firstItem="1s7-vG-bPi" firstAttribute="leading" secondItem="Q4W-iq-qxW" secondAttribute="leading" id="DX4-K8-KFV"/>
                             <constraint firstItem="jW3-4O-mkz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Eqa-IG-8Vx"/>
                             <constraint firstItem="lse-7k-LGm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Jap-U7-dtt"/>
@@ -99,7 +92,6 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="26S-Vr-R1S" secondAttribute="bottom" id="Vzo-zn-Wnb"/>
                             <constraint firstAttribute="trailing" secondItem="26S-Vr-R1S" secondAttribute="trailing" id="Zdo-iC-Xgp"/>
                             <constraint firstItem="26S-Vr-R1S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hPV-5a-zqY"/>
-                            <constraint firstAttribute="trailing" secondItem="m1J-pN-Arp" secondAttribute="trailing" constant="20" id="iYs-jQ-cDZ"/>
                             <constraint firstItem="Q4W-iq-qxW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="nQo-0t-8DX"/>
                             <constraint firstItem="Q4W-iq-qxW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="ove-qQ-Gct"/>
                             <constraint firstItem="jW3-4O-mkz" firstAttribute="leading" secondItem="EEP-7C-e9B" secondAttribute="trailing" id="v6O-C2-Sg4"/>

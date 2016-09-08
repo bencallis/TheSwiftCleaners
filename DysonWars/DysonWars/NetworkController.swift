@@ -14,6 +14,10 @@ enum Result<T> {
     case failure(ErrorType)
 }
 
+enum NetworkControllerError: ErrorType {
+    case unkownError
+}
+
 class NetworkController {
     
     let session = NSURLSession.sharedSession()
@@ -24,8 +28,10 @@ class NetworkController {
         session.dataTaskWithURL(url) { (data, response, error) in
             if let data = data, image = UIImage(data: data) {
                 completion(.success(image))
+            } else if let error =  error {
+                completion(.failure(error))
             } else {
-                completion(.failure(error!))
+                completion(.failure(NetworkControllerError.unkownError))
             }
             
         }.resume()
