@@ -11,7 +11,9 @@ import UIKit
 import SpriteKit
 
 class DriveViewController : UIViewController {
-    
+
+    var robot: Robot!
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var debugConsole: UITextView!
     
@@ -33,8 +35,12 @@ class DriveViewController : UIViewController {
             //scene.scaleMode = .AspectFill
             skView.presentScene(scene)
         }
+
+//        robot = Robot(host: "192.168.1.112")
+//        robot.setWheelVelocity(left: 1000, right: 1000)
+
     }
-    
+
     private func refreshImageView() {
         
     }
