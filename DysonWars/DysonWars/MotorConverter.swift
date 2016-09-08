@@ -83,7 +83,7 @@ class MotorConvertor {
             
         } else {
         
-            let activeWheel = maxValue // Int(abs(geom.heading) / M_PI * 4000.0)
+            let activeWheel = slowTouch ? 1000 : maxValue // Int(abs(geom.heading) / M_PI * 4000.0)
             let passiveWheel = slowTouch ? -activeWheel : Int(Double(activeWheel) * 0.5)
             left = geom.heading < 0.0 ? passiveWheel : activeWheel
             right = geom.heading < 0.0 ? activeWheel : passiveWheel

@@ -20,8 +20,12 @@ class DriveViewController : UIViewController, RobotDelegate {
     
     private let networkController = NetworkController()
     
-    private var robot: Robot = Robot(host: "192.168.1.112")
+    private lazy var robot: Robot = {
+       return Robot(host: self.currentIP)
+    }()
 
+    private var currentIP = "192.168.1.112"
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var debugConsole: UITextView!
     @IBOutlet weak var touchWheel: TouchWheel!
@@ -31,8 +35,9 @@ class DriveViewController : UIViewController, RobotDelegate {
         switch(segue.identifier, segue.sourceViewController) {
         case ("dismissSettings"?, let settingsVC as SettingsViewController):
             guard let ip = settingsVC.ipTextField.text else {return}
-            debugString("newIP:" + ip)
-            self.robot = Robot(host: ip)
+            currentIP = ip
+            debugString("newIP:" + currentIP)
+            self.robot = Robot(host: currentIP)
             robot.connect()
             motorConverter = MotorConvertor(drivingView: self.touchWheel, robot: self.robot)
         default:
@@ -61,7 +66,7 @@ class DriveViewController : UIViewController, RobotDelegate {
     @objc private func refreshImageView() {
         print("refreshImageView")
 
-        networkController.requestRobotImage(baseURL: "http://192.168.1.112") { [weak self] (result) in
+        networkController.requestRobotImage(baseURL: "http://\(currentIP)") { [weak self] (result) in
             guard let sSelf = self else {return}
             
             switch result {
