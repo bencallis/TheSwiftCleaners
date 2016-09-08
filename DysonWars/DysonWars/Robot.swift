@@ -10,6 +10,7 @@ import Moscapsule
 
 protocol RobotDelegate:class {
     func statsDidChange(stats: String)
+    func didDisconnect()
 }
 
 class Robot: NSObject {
@@ -18,6 +19,7 @@ class Robot: NSObject {
     var client : MQTTClient?
     var latestValues : [String : String] = [:]
     weak var delegate : RobotDelegate?
+    var timer : NSTimer?
     
     var lastPayload : String?
     var lastLeft : Int?
@@ -32,6 +34,18 @@ class Robot: NSObject {
 
     func connect() {
         let mqttConfig = MQTTConfig(clientId: "cid", host: self.host, port: 1883, keepAlive: 60)
+
+        mqttConfig.onDisconnectCallback = { [weak self] reasonCode in
+            dispatch_async(dispatch_get_main_queue(), { [weak self] in
+                guard let sSelf = self else {
+                    return
+                }
+                sSelf.timer?.invalidate()
+                sSelf.timer = nil
+                sSelf.delegate?.didDisconnect()
+                sSelf.delegate = nil
+            })
+        }
 
         mqttConfig.onPublishCallback = { messageId in
             //NSLog("published (mid=\(messageId))")
@@ -61,7 +75,7 @@ class Robot: NSObject {
 
         client.subscribe("#", qos: 2)
         
-        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(Robot.heartbeat), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(Robot.heartbeat), userInfo: nil, repeats: true)
     }
     
     func sendSpeedPayload(payload: String) {

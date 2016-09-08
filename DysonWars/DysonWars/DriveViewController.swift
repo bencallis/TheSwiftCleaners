@@ -94,6 +94,10 @@ class DriveViewController : UIViewController, RobotDelegate {
 //        debugString(stats) dont log too much noise
 
     }
+
+    func didDisconnect() {
+
+    }
     
     private func debugString(debugString: String) {
         let newText = debugString + "\n" + debugConsole.text
