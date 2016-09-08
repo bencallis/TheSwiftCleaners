@@ -12,6 +12,7 @@
 		083DEE86FA6C75824C8025DB /* Pods_DysonWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EF3928D2CD3ED8F0BE203 /* Pods_DysonWars.framework */; };
 		324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88B91D819DA9008C525A /* AnalogJoystick.swift */; };
 		324E88BD1D819F97008C525A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88BC1D819F97008C525A /* Configuration.swift */; };
+		324E88BF1D81AEF3008C525A /* TouchWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88BE1D81AEF3008C525A /* TouchWheel.swift */; };
 		32C45F881D81983000569E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F871D81983000569E72 /* AppDelegate.swift */; };
 		32C45F8A1D81983000569E72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F891D81983000569E72 /* ViewController.swift */; };
 		32C45F8D1D81983000569E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F8B1D81983000569E72 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		0140558D1D81A38F004CC17E /* DriveScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveScene.swift; sourceTree = "<group>"; };
 		324E88B91D819DA9008C525A /* AnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
 		324E88BC1D819F97008C525A /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		324E88BE1D81AEF3008C525A /* TouchWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchWheel.swift; sourceTree = "<group>"; };
 		32C45F841D81983000569E72 /* DysonWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DysonWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C45F871D81983000569E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C45F891D81983000569E72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				324E88B91D819DA9008C525A /* AnalogJoystick.swift */,
+				324E88BE1D81AEF3008C525A /* TouchWheel.swift */,
 			);
 			name = JoyStick;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */,
 				324E88BD1D819F97008C525A /* Configuration.swift in Sources */,
 				32C45F881D81983000569E72 /* AppDelegate.swift in Sources */,
+				324E88BF1D81AEF3008C525A /* TouchWheel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
