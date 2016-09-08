@@ -8,31 +8,64 @@
 
 import Moscapsule
 
+protocol RobotDelegate:class {
+    func statsDidChange(stats: String)
+}
+
 class Robot: NSObject {
 
-    let client : MQTTClient
+    let host : String
+    var client : MQTTClient?
+    var latestValues : [String : String] = [:]
+    weak var delegate : RobotDelegate?
 
     init(host: String) {
         // set MQTT Client Configuration
-        let mqttConfig = MQTTConfig(clientId: "cid", host: host, port: 1883, keepAlive: 60)
+        self.host = host
+    }
+
+    func connect() {
+        let mqttConfig = MQTTConfig(clientId: "cid", host: self.host, port: 1883, keepAlive: 60)
 
         mqttConfig.onPublishCallback = { messageId in
             NSLog("published (mid=\(messageId))")
         }
         mqttConfig.onMessageCallback = { mqttMessage in
             NSLog("MQTT Message received: payload=\(mqttMessage.payloadString)")
+
+            dispatch_async(dispatch_get_main_queue(), { [weak self] in
+                guard let sSelf = self else {
+                    return
+                }
+
+                sSelf.latestValues[mqttMessage.topic] = mqttMessage.payloadString
+                guard let delegate = sSelf.delegate else {
+                    return
+                }
+                delegate.statsDidChange(latestValues.description)
+            })
         }
 
         // create new MQTT Connection
         client = MQTT.newConnection(mqttConfig)
 
-        //client.subscribe("#", qos: 2)
+        guard let client = client else {
+            return
+        }
+
+        client.subscribe("#", qos: 2)
     }
 
     func setWheelVelocity(left left : Int, right : Int) {
         let payload = "{\"Left\":\(left), \"Right\":\(right)}"
-        print (payload)
+
+        guard let client = client else {
+            return
+        }
+
         client.publishString(payload, topic: "command/wheel_speed", qos: 2, retain: false)
+
+        
     }
 
 }
