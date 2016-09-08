@@ -12,7 +12,7 @@ import UIKit
 class MotorConvertor {
     
     let sensitivityThreshold = 60.0
-    let slowSpeedRadius = 100.0
+    let slowSpeedRadius = 80.0
     
     var drivingView: UIView
     var drivingViewCenter: CGPoint
@@ -60,12 +60,32 @@ class MotorConvertor {
         let geom = computeGeometry(origin: drivingViewCenter, destination: drivePoint)
         let slowTouch = geom.distance < slowSpeedRadius
         
-        let activeWheel = Int(geom.heading / M_PI * 4000.0)
-        let passiveWheel = slowTouch ? -activeWheel : Int(Double(activeWheel) * 0.5)
-        let left = geom.heading < 0.0 ? activeWheel : passiveWheel
-        let right = geom.heading > 0.0 ? activeWheel : passiveWheel
+        var left = 0
+        var right = 0
         
-        print("geometry: \(geom.xOffset) \(geom.yOffset) \(geom.distance) \(180.0*geom.heading/M_PI)")
+        let headingDegrees = 180.0 * geom.heading / M_PI
+        
+        if abs(headingDegrees) < 15.0 {
+            
+            // Charge!
+            left = 4000
+            right = 4000
+            
+        } else if abs(headingDegrees) > 160.0 {
+            
+            // Retreat!
+            left = -4000
+            right = -4000
+            
+        } else {
+        
+            let activeWheel = 4000 // Int(abs(geom.heading) / M_PI * 4000.0)
+            let passiveWheel = slowTouch ? -activeWheel : Int(Double(activeWheel) * 0.5)
+            left = geom.heading < 0.0 ? passiveWheel : activeWheel
+            right = geom.heading < 0.0 ? activeWheel : passiveWheel
+            print("geometry: \(geom.xOffset) \(geom.yOffset) \(Int(geom.distance)) \(Int(180.0*geom.heading/M_PI))")
+            
+        }
         
         robot.setWheelVelocity(left: left, right: right)
         print("Robot driving: \(left) \(right)")
