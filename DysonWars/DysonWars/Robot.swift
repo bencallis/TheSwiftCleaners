@@ -18,6 +18,7 @@ class Robot: NSObject {
     var client : MQTTClient?
     var latestValues : [String : String] = [:]
     weak var delegate : RobotDelegate?
+    var lastPayload : String?
 
     init(host: String) {
         // set MQTT Client Configuration
@@ -54,18 +55,29 @@ class Robot: NSObject {
         }
 
         client.subscribe("#", qos: 2)
+        
+        NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: #selector(Robot.heartbeat), userInfo: nil, repeats: true)
+    }
+    
+    func sendSpeedPayload(payload: String) {
+        guard let client = client else {
+            return
+        }
+        
+        client.publishString(payload, topic: "command/wheel_speed", qos: 2, retain: false)
     }
 
     func setWheelVelocity(left left : Int, right : Int) {
         let payload = "{\"Left\":\(left), \"Right\":\(right)}"
-
-        guard let client = client else {
+        lastPayload = payload
+        sendSpeedPayload(payload)
+    }
+    
+    func heartbeat() {
+        guard let payload = lastPayload else {
             return
         }
-
-        client.publishString(payload, topic: "command/wheel_speed", qos: 2, retain: false)
-
-        
+        sendSpeedPayload(payload)
     }
 
 }
