@@ -17,7 +17,8 @@ class DriveViewController : UIViewController, RobotDelegate {
         return  MotorConvertor(drivingView: self.touchWheel, robot: self.robot)
     }()
     
-
+    private let networkController = NetworkController()
+    
     private var robot: Robot = Robot(host: "192.168.1.112")
 
     @IBOutlet weak var imageView: UIImageView!
@@ -33,6 +34,10 @@ class DriveViewController : UIViewController, RobotDelegate {
         self.configureTouchWheel()
         robot.delegate = self
         robot.connect()
+        
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(refreshImageView), userInfo: nil, repeats: true)
+
+        refreshImageView()
 
     }
     
@@ -41,12 +46,37 @@ class DriveViewController : UIViewController, RobotDelegate {
 
     }
 
-    private func refreshImageView() {
-        
+    @objc private func refreshImageView() {
+        print("refreshImageView")
+
+        networkController.requestRobotImage(baseURL: "http://192.168.1.112") { [weak self] (result) in
+            guard let sSelf = self else {return}
+            
+            switch result {
+            case .success(let image):
+                dispatch_async(dispatch_get_main_queue(), { 
+                    sSelf.imageView.image = image
+                    sSelf.statsDidChange("new image SUCCESS")
+
+                })
+            case .failure(let error):
+                print("Image request error: \(error)")
+                sSelf.statsDidChange("new image FAILED")
+
+                break;
+            }
+            sSelf.refreshImageView()
+        }
     }
 
     func statsDidChange(stats: String) {
-        debugString(stats)
+        if NSThread.isMainThread() {
+            debugString(stats)
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.debugString(stats)
+            })
+        }
     }
     
     private func debugString(debugString: String) {
