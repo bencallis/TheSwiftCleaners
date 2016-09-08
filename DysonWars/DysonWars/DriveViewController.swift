@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SpriteKit
 
-class DriveViewController : UIViewController {
+class DriveViewController : UIViewController, RobotDelegate {
     
     private lazy var motorConverter: MotorConvertor = {
         // lazy so we can access the touchWheel
@@ -30,8 +30,8 @@ class DriveViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTouchWheel()
-        //        robot = Robot(host: "192.168.1.112")
-        //        robot.setWheelVelocity(left: 1000, right: 1000)
+        robot.delegate = self
+        robot.connect()
 
     }
     
@@ -42,6 +42,10 @@ class DriveViewController : UIViewController {
 
     private func refreshImageView() {
         
+    }
+
+    func statsDidChange(stats: String) {
+        debugConsole.text = stats
     }
     
 }
