@@ -11,33 +11,32 @@ import UIKit
 import SpriteKit
 
 class DriveViewController : UIViewController {
+    
+    private lazy var motorConverter: MotorConvertor = {
+        // lazy so we can access the touchWheel
+        return  MotorConvertor(drivingView: self.touchWheel, robot: self.robot)
+    }()
+    
 
-    var robot: Robot!
+    private var robot: Robot = Robot(host: "192.168.1.112")
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var debugConsole: UITextView!
+    @IBOutlet weak var touchWheel: TouchWheel!
     
     @IBAction func unwindToDriveViewControllerFromSettings(segue: UIStoryboardSegue) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Configure the view.
-        let scene = DriveScene(size: self.view.bounds.size)
-        scene.backgroundColor = UIColor.whiteColor()
-        if let skView = self.view as? SKView {
-            
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            /* Set the scale mode to scale to fit the window */
-            //scene.scaleMode = .AspectFill
-            skView.presentScene(scene)
-        }
+        self.configureTouchWheel()
+        //        robot = Robot(host: "192.168.1.112")
+        //        robot.setWheelVelocity(left: 1000, right: 1000)
 
-//        robot = Robot(host: "192.168.1.112")
-//        robot.setWheelVelocity(left: 1000, right: 1000)
+    }
+    
+    private func configureTouchWheel() {
+        touchWheel.delegate = self
 
     }
 
@@ -45,6 +44,17 @@ class DriveViewController : UIViewController {
         
     }
     
+}
 
-
+extension DriveViewController: TouchWheelDelegate {
+    
+    func touchedPoint(point: CGPoint, sender: TouchWheel) {
+        debugConsole.text = "touchedPoint \(point)"
+        motorConverter.consumePoint(point)
+    }
+    
+    func touchesEnded(sender sender: TouchWheel) {
+        debugConsole.text = "touchesEnded"
+        motorConverter.consumeUntouch()
+    }
 }

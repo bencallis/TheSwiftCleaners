@@ -81,6 +81,7 @@
                     <connections>
                         <outlet property="debugConsole" destination="EEP-7C-e9B" id="XY0-YZ-2f3"/>
                         <outlet property="imageView" destination="26S-Vr-R1S" id="cy6-Tr-3Ih"/>
+                        <outlet property="touchWheel" destination="jW3-4O-mkz" id="BWf-1v-CJg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
