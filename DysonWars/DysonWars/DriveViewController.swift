@@ -29,6 +29,7 @@ class DriveViewController : UIViewController, RobotDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.configureTouchWheel()
         robot.delegate = self
         robot.connect()
@@ -45,20 +46,25 @@ class DriveViewController : UIViewController, RobotDelegate {
     }
 
     func statsDidChange(stats: String) {
-        debugConsole.text = stats
+        debugString(stats)
     }
     
+    private func debugString(debugString: String) {
+        let newText = debugString + "\n" + debugConsole.text
+        debugConsole.text = newText // todo may need to limit this?
+        debugConsole.setContentOffset(CGPointZero, animated: false)
+    }
 }
 
 extension DriveViewController: TouchWheelDelegate {
     
     func touchedPoint(point: CGPoint, sender: TouchWheel) {
-        debugConsole.text = "touchedPoint \(point)"
+        debugString("🕹\(point)")
         motorConverter.consumePoint(point)
     }
     
     func touchesEnded(sender sender: TouchWheel) {
-        debugConsole.text = "touchesEnded"
+        debugString("🕹End")
         motorConverter.consumeUntouch()
     }
 }
