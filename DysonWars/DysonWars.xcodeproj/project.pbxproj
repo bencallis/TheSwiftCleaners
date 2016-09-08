@@ -12,6 +12,7 @@
 		32C45F8D1D81983000569E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F8B1D81983000569E72 /* Main.storyboard */; };
 		32C45F8F1D81983000569E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F8E1D81983000569E72 /* Assets.xcassets */; };
 		32C45F921D81983000569E72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F901D81983000569E72 /* LaunchScreen.storyboard */; };
+		9D12A78A45C70C9974FD8B93 /* Pods_DysonWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EECCD7C89F2D98CAC4A17F0 /* Pods_DysonWars.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		32C45F8E1D81983000569E72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32C45F911D81983000569E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32C45F931D81983000569E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EECCD7C89F2D98CAC4A17F0 /* Pods_DysonWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DysonWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79B42A51896D1503B2127B88 /* Pods-DysonWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DysonWars.release.xcconfig"; path = "Pods/Target Support Files/Pods-DysonWars/Pods-DysonWars.release.xcconfig"; sourceTree = "<group>"; };
+		F99FDA09453152BB5F3F3C14 /* Pods-DysonWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DysonWars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DysonWars/Pods-DysonWars.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D12A78A45C70C9974FD8B93 /* Pods_DysonWars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				32C45F861D81983000569E72 /* DysonWars */,
 				32C45F851D81983000569E72 /* Products */,
+				ABF4DFC96BAF935EEA47A8F7 /* Pods */,
+				863687788FB74F6000573E2A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = DysonWars;
 			sourceTree = "<group>";
 		};
+		863687788FB74F6000573E2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6EECCD7C89F2D98CAC4A17F0 /* Pods_DysonWars.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABF4DFC96BAF935EEA47A8F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F99FDA09453152BB5F3F3C14 /* Pods-DysonWars.debug.xcconfig */,
+				79B42A51896D1503B2127B88 /* Pods-DysonWars.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32C45F961D81983000569E72 /* Build configuration list for PBXNativeTarget "DysonWars" */;
 			buildPhases = (
+				25E93377A63A92C03FBDC4A0 /* 📦 Check Pods Manifest.lock */,
 				32C45F801D81983000569E72 /* Sources */,
 				32C45F811D81983000569E72 /* Frameworks */,
 				32C45F821D81983000569E72 /* Resources */,
+				236CA48FB06A495841A82070 /* 📦 Embed Pods Frameworks */,
+				CD4AB086C91685216DE301A4 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		236CA48FB06A495841A82070 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DysonWars/Pods-DysonWars-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25E93377A63A92C03FBDC4A0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CD4AB086C91685216DE301A4 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DysonWars/Pods-DysonWars-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		32C45F801D81983000569E72 /* Sources */ = {
@@ -249,6 +324,7 @@
 		};
 		32C45F971D81983000569E72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F99FDA09453152BB5F3F3C14 /* Pods-DysonWars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DysonWars/Info.plist;
@@ -260,6 +336,7 @@
 		};
 		32C45F981D81983000569E72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79B42A51896D1503B2127B88 /* Pods-DysonWars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DysonWars/Info.plist;
@@ -288,6 +365,7 @@
 				32C45F981D81983000569E72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
