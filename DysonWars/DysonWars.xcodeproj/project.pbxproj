@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01293E7E1D819FDB002E219F /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01293E7D1D819FDB002E219F /* DriveViewController.swift */; };
+		0140558E1D81A38F004CC17E /* DriveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140558D1D81A38F004CC17E /* DriveScene.swift */; };
 		083DEE86FA6C75824C8025DB /* Pods_DysonWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EF3928D2CD3ED8F0BE203 /* Pods_DysonWars.framework */; };
 		324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88B91D819DA9008C525A /* AnalogJoystick.swift */; };
 		32C45F881D81983000569E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F871D81983000569E72 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		01293E7D1D819FDB002E219F /* DriveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
+		0140558D1D81A38F004CC17E /* DriveScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveScene.swift; sourceTree = "<group>"; };
 		324E88B91D819DA9008C525A /* AnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
 		32C45F841D81983000569E72 /* DysonWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DysonWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C45F871D81983000569E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				32C45F901D81983000569E72 /* LaunchScreen.storyboard */,
 				32C45F931D81983000569E72 /* Info.plist */,
 				01293E7D1D819FDB002E219F /* DriveViewController.swift */,
+				0140558D1D81A38F004CC17E /* DriveScene.swift */,
 			);
 			path = DysonWars;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0140558E1D81A38F004CC17E /* DriveScene.swift in Sources */,
 				32C45F8A1D81983000569E72 /* ViewController.swift in Sources */,
 				01293E7E1D819FDB002E219F /* DriveViewController.swift in Sources */,
 				324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */,
