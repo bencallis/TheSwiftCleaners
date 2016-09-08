@@ -12,9 +12,7 @@ import UIKit
 class MotorConvertor {
     
     let sensitivityThreshold = 60.0
-    let speedRadius = 300.0
-    let lowFactor = 20.0
-    let highFactor = 40.0
+    let slowSpeedRadius = 100.0
     
     var drivingView: UIView
     var drivingViewCenter: CGPoint
@@ -26,30 +24,31 @@ class MotorConvertor {
         self.drivingView = drivingView
         self.viewLength = drivingView.bounds.size.height < drivingView.bounds.size.width ?
             Double(drivingView.bounds.size.height) : Double(drivingView.bounds.size.width)
-        self.drivingViewCenter = drivingView.center
+        self.drivingViewCenter = CGPointMake(drivingView.bounds.size.width*0.5, drivingView.bounds.size.height*0.5)
         self.robot = robot
     }
     
-    struct Geometry {
+    private struct Geometry {
         var xOffset: Double
         var yOffset: Double
         var distance: Double
         var heading: Double
     }
     
-    func computeGeometry(origin origin: CGPoint, destination: CGPoint) -> Geometry {
+    private func computeGeometry(origin origin: CGPoint, destination: CGPoint) -> Geometry {
         let xOffset = Double(destination.x - origin.x)
-        let yOffset = Double(destination.y - origin.y)
+        let yOffset = -1.0 * Double(destination.y - origin.y)
         let distance = sqrt(xOffset*xOffset + yOffset*yOffset)
-        let heading = atan2(yOffset, xOffset)
+        let heading = atan2(xOffset, yOffset)
         return Geometry(xOffset: xOffset, yOffset: yOffset, distance: distance, heading: heading)
     }
     
-    func accept(drivePoint: CGPoint) -> Bool {
+    private func accept(drivePoint: CGPoint) -> Bool {
         guard let lastPoint = lastPoint else { return true }
         let diff = computeGeometry(origin: lastPoint, destination: drivePoint)
         return diff.distance > sensitivityThreshold
     }
+    
     
     func consumePoint(drivePoint: CGPoint) {
         
@@ -59,25 +58,22 @@ class MotorConvertor {
         }
         
         let geom = computeGeometry(origin: drivingViewCenter, destination: drivePoint)
-        var leftMotor: Int = 0
-        var rightMotor: Int = 0
+        let slowTouch = geom.distance < slowSpeedRadius
         
-        if geom.xOffset > 0 {
-            
-            
-        }
+        let activeWheel = Int(geom.heading / M_PI * 4000.0)
+        let passiveWheel = slowTouch ? -activeWheel : Int(Double(activeWheel) * 0.5)
+        let left = geom.heading < 0.0 ? activeWheel : passiveWheel
+        let right = geom.heading > 0.0 ? activeWheel : passiveWheel
         
+        print("geometry: \(geom.xOffset) \(geom.yOffset) \(geom.distance) \(180.0*geom.heading/M_PI)")
         
-        
-        let driveFactor = geom.distance < speedRadius ? lowFactor : highFactor
-        
-        
-        
-        
+        robot.setWheelVelocity(left: left, right: right)
+        print("Robot driving: \(left) \(right)")
     }
     
     func consumeUntouch() {
         print("Untouch!")
+        self.lastPoint = nil
     }
     
     
