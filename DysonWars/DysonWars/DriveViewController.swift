@@ -12,33 +12,40 @@ import SpriteKit
 
 class DriveViewController : UIViewController {
     
+    lazy var motorConverter: MotorConvertor = {
+        // lazy so we can access the touchWheel
+        return  MotorConvertor(drivingView: self.touchWheel)
+    }()
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var debugConsole: UITextView!
+    @IBOutlet weak var touchWheel: TouchWheel!
     
     @IBAction func unwindToDriveViewControllerFromSettings(segue: UIStoryboardSegue) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Configure the view.
-        let scene = DriveScene(size: self.view.bounds.size)
-        scene.backgroundColor = UIColor.whiteColor()
-        if let skView = self.view as? SKView {
-            
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            /* Set the scale mode to scale to fit the window */
-            //scene.scaleMode = .AspectFill
-            skView.presentScene(scene)
-        }
+        self.configureTouchWheel()
+    }
+    
+    private func configureTouchWheel() {
+        touchWheel.delegate = self
     }
     
     private func refreshImageView() {
         
     }
     
+}
 
-
+extension DriveViewController: TouchWheelDelegate {
+    
+    func touchedPoint(point: CGPoint, sender: TouchWheel) {
+        debugConsole.text = "touchedPoint \(point)"
+    }
+    
+    func touchesEnded(sender sender: TouchWheel) {
+        debugConsole.text = "touchesEnded"
+    }
 }

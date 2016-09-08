@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 
+
+protocol TouchWheelDelegate {
+    func touchedPoint(point: CGPoint, sender: TouchWheel)
+    func touchesEnded(sender sender: TouchWheel)
+}
+
 class TouchWheel: UIView {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
+    var delegate: TouchWheelDelegate?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -27,6 +30,7 @@ class TouchWheel: UIView {
         let location = touch.locationInView(self)
 
         print("Touched began. Point:\(location)")
+        delegate?.touchedPoint(location, sender: self)
     }
     
     
@@ -37,6 +41,7 @@ class TouchWheel: UIView {
         let location = touch.locationInView(self)
         
         print("Touched moved. Point:\(location)")
+        delegate?.touchedPoint(location, sender: self)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -46,5 +51,7 @@ class TouchWheel: UIView {
         let location = touch.locationInView(self)
         
         print("Touched ended. Point:\(location)")
+        delegate?.touchesEnded(sender: self)
+
     }
 }
