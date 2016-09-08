@@ -35,9 +35,10 @@ class DriveViewController : UIViewController, RobotDelegate {
         robot.delegate = self
         robot.connect()
         
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(refreshImageView), userInfo: nil, repeats: true)
-
+        self.imageView.image = nil // dont show the placeholder
         refreshImageView()
+
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(refreshImageView), userInfo: nil, repeats: true)
 
     }
     
@@ -90,6 +91,15 @@ class DriveViewController : UIViewController, RobotDelegate {
         }
 
     }
+    
+    @IBAction func gearChanged(sender: UISegmentedControl) {
+        let gear = sender.selectedSegmentIndex
+        let speed = (gear * 1000) + 1000
+        motorConverter.maxValue = speed
+        
+        debugString("Speed change: \(speed)")
+    }
+    
 }
 
 extension DriveViewController: TouchWheelDelegate {

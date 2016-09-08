@@ -54,6 +54,7 @@ class TouchWheel: UIView {
         
         print("Touched ended. Point:\(location)")
         delegate?.touchesEnded(sender: self)
-
     }
+    
+    
 }

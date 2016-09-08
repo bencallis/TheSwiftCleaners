@@ -54,11 +54,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="3" translatesAutoresizingMaskIntoConstraints="NO" id="Q4W-iq-qxW">
+                                <rect key="frame" x="10" y="30" width="170" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="viR-aR-rQP"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="gearChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="9uJ-dM-bse"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1s7-vG-bPi">
+                                <rect key="frame" x="10" y="11" width="31" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lse-7k-LGm" secondAttribute="trailing" constant="20" id="3gf-VA-8QC"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m1J-pN-Arp" secondAttribute="bottom" constant="20" id="6ku-81-Vqn"/>
+                            <constraint firstItem="1s7-vG-bPi" firstAttribute="leading" secondItem="Q4W-iq-qxW" secondAttribute="leading" id="DX4-K8-KFV"/>
                             <constraint firstItem="jW3-4O-mkz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Eqa-IG-8Vx"/>
                             <constraint firstItem="lse-7k-LGm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Jap-U7-dtt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EEP-7C-e9B" secondAttribute="bottom" id="QCT-8R-BcO"/>
@@ -66,7 +89,10 @@
                             <constraint firstAttribute="trailing" secondItem="26S-Vr-R1S" secondAttribute="trailing" id="Zdo-iC-Xgp"/>
                             <constraint firstItem="26S-Vr-R1S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hPV-5a-zqY"/>
                             <constraint firstAttribute="trailing" secondItem="m1J-pN-Arp" secondAttribute="trailing" constant="20" id="iYs-jQ-cDZ"/>
+                            <constraint firstItem="Q4W-iq-qxW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="nQo-0t-8DX"/>
+                            <constraint firstItem="Q4W-iq-qxW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="ove-qQ-Gct"/>
                             <constraint firstItem="jW3-4O-mkz" firstAttribute="leading" secondItem="EEP-7C-e9B" secondAttribute="trailing" id="v6O-C2-Sg4"/>
+                            <constraint firstItem="Q4W-iq-qxW" firstAttribute="top" secondItem="1s7-vG-bPi" secondAttribute="bottom" constant="2" id="w09-3U-WiR"/>
                             <constraint firstItem="EEP-7C-e9B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wee-lE-CAY"/>
                             <constraint firstItem="jW3-4O-mkz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="45" id="xiR-yH-Bjf"/>
                             <constraint firstItem="26S-Vr-R1S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zYi-jg-62I"/>

@@ -11,6 +11,8 @@ import UIKit
 
 class MotorConvertor {
     
+    var maxValue = 5000
+
     let sensitivityThreshold = 60.0
     let slowSpeedRadius = 80.0
     
@@ -50,6 +52,7 @@ class MotorConvertor {
     }
     
     
+
     func consumePoint(drivePoint: CGPoint) {
         
         guard accept(drivePoint) else {
@@ -65,21 +68,22 @@ class MotorConvertor {
         
         let headingDegrees = 180.0 * geom.heading / M_PI
         
+        
         if abs(headingDegrees) < 15.0 {
             
             // Charge!
-            left = 4000
-            right = 4000
+            left = maxValue
+            right = maxValue
             
         } else if abs(headingDegrees) > 160.0 {
             
             // Retreat!
-            left = -4000
-            right = -4000
+            left = -maxValue
+            right = -maxValue
             
         } else {
         
-            let activeWheel = 4000 // Int(abs(geom.heading) / M_PI * 4000.0)
+            let activeWheel = maxValue // Int(abs(geom.heading) / M_PI * 4000.0)
             let passiveWheel = slowTouch ? -activeWheel : Int(Double(activeWheel) * 0.5)
             left = geom.heading < 0.0 ? passiveWheel : activeWheel
             right = geom.heading < 0.0 ? activeWheel : passiveWheel
