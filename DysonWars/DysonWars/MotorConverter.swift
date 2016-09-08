@@ -73,6 +73,7 @@ class MotorConvertor {
     
     func consumeUntouch() {
         print("Untouch!")
+        robot.setWheelVelocity(left: 0, right: 0)
         self.lastPoint = nil
     }
     
