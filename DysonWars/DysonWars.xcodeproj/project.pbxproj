@@ -10,6 +10,7 @@
 		01293E7E1D819FDB002E219F /* DriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01293E7D1D819FDB002E219F /* DriveViewController.swift */; };
 		083DEE86FA6C75824C8025DB /* Pods_DysonWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9EF3928D2CD3ED8F0BE203 /* Pods_DysonWars.framework */; };
 		324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88B91D819DA9008C525A /* AnalogJoystick.swift */; };
+		324E88BD1D819F97008C525A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E88BC1D819F97008C525A /* Configuration.swift */; };
 		32C45F881D81983000569E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F871D81983000569E72 /* AppDelegate.swift */; };
 		32C45F8A1D81983000569E72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C45F891D81983000569E72 /* ViewController.swift */; };
 		32C45F8D1D81983000569E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C45F8B1D81983000569E72 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		01293E7D1D819FDB002E219F /* DriveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveViewController.swift; sourceTree = "<group>"; };
 		324E88B91D819DA9008C525A /* AnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
+		324E88BC1D819F97008C525A /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		32C45F841D81983000569E72 /* DysonWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DysonWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C45F871D81983000569E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C45F891D81983000569E72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 			name = JoyStick;
 			sourceTree = "<group>";
 		};
+		324E88BB1D819F87008C525A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				324E88BC1D819F97008C525A /* Configuration.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		32C45F7B1D81983000569E72 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +83,7 @@
 		32C45F861D81983000569E72 /* DysonWars */ = {
 			isa = PBXGroup;
 			children = (
+				324E88BB1D819F87008C525A /* Networking */,
 				324E88B81D819D9D008C525A /* JoyStick */,
 				32C45F871D81983000569E72 /* AppDelegate.swift */,
 				32C45F891D81983000569E72 /* ViewController.swift */,
@@ -227,6 +238,7 @@
 				32C45F8A1D81983000569E72 /* ViewController.swift in Sources */,
 				01293E7E1D819FDB002E219F /* DriveViewController.swift in Sources */,
 				324E88BA1D819DA9008C525A /* AnalogJoystick.swift in Sources */,
+				324E88BD1D819F97008C525A /* Configuration.swift in Sources */,
 				32C45F881D81983000569E72 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
