@@ -20,12 +20,14 @@ class MotorConvertor {
     var drivingViewCenter: CGPoint
     var viewLength: Double
     var lastPoint: CGPoint?
+    var robot: Robot
     
-    init(drivingView: UIView) {
+    init(drivingView: UIView, robot: Robot) {
         self.drivingView = drivingView
         self.viewLength = drivingView.bounds.size.height < drivingView.bounds.size.width ?
             Double(drivingView.bounds.size.height) : Double(drivingView.bounds.size.width)
         self.drivingViewCenter = drivingView.center
+        self.robot = robot
     }
     
     struct Geometry {
@@ -57,6 +59,16 @@ class MotorConvertor {
         }
         
         let geom = computeGeometry(origin: drivingViewCenter, destination: drivePoint)
+        var leftMotor: Int = 0
+        var rightMotor: Int = 0
+        
+        if geom.xOffset > 0 {
+            
+            
+        }
+        
+        
+        
         let driveFactor = geom.distance < speedRadius ? lowFactor : highFactor
         
         
