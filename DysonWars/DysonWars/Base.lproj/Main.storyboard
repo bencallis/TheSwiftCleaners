@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="26S-Vr-R1S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderView" translatesAutoresizingMaskIntoConstraints="NO" id="26S-Vr-R1S">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1J-pN-Arp">
-                                <rect key="frame" x="536" y="285" width="44" height="30"/>
+                                <rect key="frame" x="536" y="550" width="44" height="30"/>
                                 <state key="normal" title="Attack">
                                     <color key="titleColor" red="0.96470588450000005" green="0.96078431610000004" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
@@ -45,13 +45,16 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="26S-Vr-R1S" secondAttribute="bottom" id="atK-el-AhU"/>
                             <constraint firstItem="26S-Vr-R1S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bJ5-iH-Qdc"/>
                             <constraint firstItem="26S-Vr-R1S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f6R-Ph-QlP"/>
-                            <constraint firstItem="m1J-pN-Arp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fHh-s9-ZFK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m1J-pN-Arp" secondAttribute="bottom" constant="20" id="q7s-xU-38p"/>
                             <constraint firstAttribute="trailing" secondItem="26S-Vr-R1S" secondAttribute="trailing" id="sVA-L0-sIV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Swift Cleaning Wars" id="cPM-dF-4cm">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="EUu-zC-oxc"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="26S-Vr-R1S" id="cy6-Tr-3Ih"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,4 +155,7 @@
             <point key="canvasLocation" x="2045" y="-472"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholderView" width="640" height="480"/>
+    </resources>
 </document>
