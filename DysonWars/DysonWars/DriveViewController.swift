@@ -46,7 +46,7 @@ class DriveViewController : UIViewController, RobotDelegate {
     }
 
     func statsDidChange(stats: String) {
-        debugConsole.text = stats
+        debugString(stats)
     }
     
     private func debugString(debugString: String) {
