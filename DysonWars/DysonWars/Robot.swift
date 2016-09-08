@@ -29,10 +29,10 @@ class Robot: NSObject {
         let mqttConfig = MQTTConfig(clientId: "cid", host: self.host, port: 1883, keepAlive: 60)
 
         mqttConfig.onPublishCallback = { messageId in
-            NSLog("published (mid=\(messageId))")
+            //NSLog("published (mid=\(messageId))")
         }
         mqttConfig.onMessageCallback = { mqttMessage in
-            NSLog("MQTT Message received: payload=\(mqttMessage.payloadString)")
+            //NSLog("MQTT Message received: payload=\(mqttMessage.payloadString)")
 
             dispatch_async(dispatch_get_main_queue(), { [weak self] in
                 guard let sSelf = self else {

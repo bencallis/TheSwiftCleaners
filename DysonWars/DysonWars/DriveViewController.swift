@@ -54,8 +54,10 @@ class DriveViewController : UIViewController, RobotDelegate {
             
             switch result {
             case .success(let image):
+                let flippedImage = UIImage(CGImage: image.CGImage!, scale: 1.0, orientation: .DownMirrored)
+
                 dispatch_async(dispatch_get_main_queue(), { 
-                    sSelf.imageView.image = image
+                    sSelf.imageView.image = flippedImage
                     sSelf.statsDidChange("new image SUCCESS")
 
                 })

@@ -22,6 +22,8 @@ class TouchWheel: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layer.cornerRadius = self.frame.size.width / 2 // make it a circle
+        self.layer.borderColor = UIColor.redColor().CGColor
+        self.layer.borderWidth = 2
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

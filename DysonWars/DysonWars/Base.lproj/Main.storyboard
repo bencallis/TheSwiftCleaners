@@ -39,7 +39,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jW3-4O-mkz" customClass="TouchWheel" customModule="DysonWars" customModuleProvider="target">
                                 <rect key="frame" x="206" y="0.0" width="414" height="414"/>
-                                <color key="backgroundColor" red="1" green="0.3294117647" blue="0.32156862749999998" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.3294117647" blue="0.32156862749999998" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jW3-4O-mkz" secondAttribute="height" multiplier="1:1" id="5cl-FQ-ezt"/>
                                     <constraint firstAttribute="width" constant="414" id="ekr-K0-Hgf"/>
